@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "Happy Browsing Extension",
+    "version": "1.0",
+    "description": "Displays a pop-up message on specific websites.",
+    "permissions": ["tabs"],
+    "content_scripts": [
+      {
+        "matches": ["http://example.com/*", "https://example.com/*"],
+        "js": ["contentScript.js"],
+        "run_at": "document_end"
+      }
+    ],
+    "action": {
+      "default_icon": "icon.png"
+    },
+    "icons": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  }
+  
