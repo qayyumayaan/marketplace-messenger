@@ -1,28 +1,38 @@
 
-const popup = document.createElement("div");
-popup.style.position = "fixed";
-popup.style.top = "10px";
-popup.style.right = "10px";
-popup.style.padding = "10px";
-popup.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
-popup.style.color = "#fff";
-popup.style.fontFamily = "Arial, sans-serif";
-popup.style.fontSize = "16px";
-popup.style.zIndex = "9999";
-popup.textContent = "Happy browsing!";
+const createPopupElement = (tag, styles, textContent) => {
+    const element = document.createElement(tag);
+    Object.assign(element.style, styles);
+    // element.style.textAlign = "right";
+    element.textContent = textContent;
+    return element;
+  };
 
+  const message = "Happy browsing!"
 
-const dismissButton = document.createElement("button");
-dismissButton.style.position = "absolute";
-dismissButton.style.top = "5px";
-dismissButton.style.right = "5px";
-dismissButton.style.backgroundColor = "transparent";
-dismissButton.style.border = "none";
-dismissButton.style.color = "#fff";
-dismissButton.style.fontSize = "14px";
-dismissButton.style.cursor = "pointer";
-dismissButton.textContent = "Dismiss";
-
+  
+  const popup = createPopupElement("div", {
+    position: "fixed",
+    top: "10px",
+    right: "10px",
+    padding: "10px",
+    backgroundColor: "rgba(0, 0, 0, 0.8)",
+    color: "#fff",
+    fontFamily: "Arial, sans-serif",
+    fontSize: "16px",
+    zIndex: "9999",
+  }, message);
+  
+  const dismissButton = createPopupElement("button", {
+    position: "absolute",
+    top: "10px",
+    right: "5px",
+    backgroundColor: "transparent",
+    border: "none",
+    color: "#fff",
+    fontSize: "16px",
+    cursor: "pointer",
+  }, "Dismiss");
+  
 function removePopup() {
   popup.remove();
 }
