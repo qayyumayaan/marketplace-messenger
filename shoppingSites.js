@@ -3310,7 +3310,7 @@ const shoppingWebsites = [
     "http://zooplus.de/*", 
     "https://zooplus.de/*", 
     "http://zooplus.fr/*", 
-    "https://zooplus.fr/*", 
+    "https://zooplus.fr/*" 
     ];
     
 export { shoppingWebsites };
