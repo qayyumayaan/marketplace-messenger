@@ -7,10 +7,8 @@ const createPopupElement = (tag, styles, textContent) => {
     return element;
   };
 
-  const message = "Happy browsing!"
+  const message = "laa ilaaha ill-allaahu wahdahu laa shareeka lah, lah-ul-mulku wa lahul-hamdu, yuhyee wa yumeetu wa huwa hayun laa yamootu, bi yadi-hil-khayru, wa huwa 'alaa kulli shay'in qadeer"
 
-  const justMessageHeight = "80px";
-  const dismissButtonSpacingFromMainText = justMessageHeight;
   
   const popup = createPopupElement("div", {
     position: "fixed",
@@ -26,20 +24,20 @@ const createPopupElement = (tag, styles, textContent) => {
     zIndex: "9999",
     boxShadow: "10px 5px 5px blue",
     margin: "0em",
-    // width: "",
+    display: "flex",
+    flexDirection: "column",
   }, message);
   
   const dismissButton = createPopupElement("button", {
-    position: "absolute",
-    top: dismissButtonSpacingFromMainText,
-    right: "5px",
+    marginTop: "10px",
     padding: "10px",
+    marginLeft: "auto",
     backgroundColor: "rgba(0, 0, 0, 0.8)",
+    right: "10px",
     color: "#fff",
     fontSize: "16px",
     borderRadius: "10px",
     cursor: "pointer",
-    boxShadow: "10px 5px 5px blue",
     width: "100px",
   }, "Dismiss");
   
