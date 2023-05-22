@@ -6,7 +6,9 @@
     "permissions": ["tabs"],
     "content_scripts": [
       {
-        "matches": ["http://example.com/*", "https://example.com/*"],
+        "matches": [
+          "http://example.com/*", "https://example.com/*"
+        ],
         "js": ["contentScript.js"],
         "run_at": "document_end"
       }
