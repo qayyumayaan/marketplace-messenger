@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Happy Browsing Extension",
+  "name": "Marketplace Messenger",
   "version": "1.0",
-  "description": "Displays a pop-up message on specific websites.",
+  "description": "Displays the marketplace dua before entering shopping websites for maximum rewards.",
   "content_scripts": [
     {
       "matches": ["https://temu.com/*",
