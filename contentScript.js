@@ -7,26 +7,29 @@ const createPopupElement = (tag, styles, textContent) => {
     return element;
   };
 
-  const message = "laa ilaaha ill-allaahu wahdahu laa shareeka lah, lah-ul-mulku wa lahul-hamdu, yuhyee wa yumeetu wa huwa hayun laa yamootu, bi yadi-hil-khayru, wa huwa 'alaa kulli shay'in qadeer"
-
   
-  const popup = createPopupElement("div", {
-    position: "fixed",
-    top: "10px",
-    right: "10px",
-    padding: "10px",
-    borderRadius: "10px",
-    backgroundColor: "rgba(0, 0, 0, 0.8)",
-    color: "#fff",
-    fontFamily: "Arial, sans-serif",
-    fontSize: "16px",
-    textAlign: "right",
-    zIndex: "9999",
-    boxShadow: "10px 5px 5px blue",
-    margin: "0em",
-    display: "flex",
-    flexDirection: "column",
-  }, message);
+  chrome.storage.sync.get({
+    message: "laa ilaaha ill-allaahu wahdahu laa shareeka lah, lah-ul-mulku wa lahul-hamdu, yuhyee wa yumeetu wa huwa hayun laa yamootu, bi yadi-hil-khayru, wa huwa 'alaa kulli shay'in qadeer" // Default message
+  }, function(items) {
+    const popup = createPopupElement("div", {
+      position: "fixed",
+      top: "10px",
+      right: "10px",
+      padding: "10px",
+      borderRadius: "10px",
+      backgroundColor: "rgba(0, 0, 0, 0.8)",
+      color: "#fff",
+      fontFamily: "Arial, sans-serif",
+      fontSize: "16px",
+      textAlign: "right",
+      zIndex: "9999",
+      boxShadow: "10px 5px 5px blue",
+      margin: "0em",
+      display: "flex",
+      flexDirection: "column",
+    }, items.message);
+  });
+  
   
   const dismissButton = createPopupElement("button", {
     marginTop: "10px",
