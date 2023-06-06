@@ -1,3 +1,5 @@
+import { defaultMessage } from "./constants";
+
 const createPopupElement = (tag, styles, textContent) => {
   const element = document.createElement(tag);
   Object.assign(element.style, styles);
@@ -8,7 +10,7 @@ const createPopupElement = (tag, styles, textContent) => {
 let popup;
 
 chrome.storage.sync.get({
-  message: "laa ilaaha ill-allaahu wahdahu laa shareeka lah, lah-ul-mulku wa lahul-hamdu, yuhyee wa yumeetu wa huwa hayun laa yamootu, bi yadi-hil-khayru, wa huwa 'alaa kulli shay'in qadeer"
+  message: defaultMessage
 }, function(items) {
   popup = createPopupElement("div", {
     position: "fixed",
