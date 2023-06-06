@@ -1,36 +1,33 @@
-
 const createPopupElement = (tag, styles, textContent) => {
-    const element = document.createElement(tag);
-    Object.assign(element.style, styles);
-    // element.style.textAlign = "right";
-    element.textContent = textContent;
-    return element;
-  };
+  const element = document.createElement(tag);
+  Object.assign(element.style, styles);
+  element.textContent = textContent;
+  return element;
+};
 
-  
-  chrome.storage.sync.get({
-    message: "laa ilaaha ill-allaahu wahdahu laa shareeka lah, lah-ul-mulku wa lahul-hamdu, yuhyee wa yumeetu wa huwa hayun laa yamootu, bi yadi-hil-khayru, wa huwa 'alaa kulli shay'in qadeer" // Default message
-  }, function(items) {
-    const popup = createPopupElement("div", {
-      position: "fixed",
-      top: "10px",
-      right: "10px",
-      padding: "10px",
-      borderRadius: "10px",
-      backgroundColor: "rgba(0, 0, 0, 0.8)",
-      color: "#fff",
-      fontFamily: "Arial, sans-serif",
-      fontSize: "16px",
-      textAlign: "right",
-      zIndex: "9999",
-      boxShadow: "10px 5px 5px blue",
-      margin: "0em",
-      display: "flex",
-      flexDirection: "column",
-    }, items.message);
-  });
-  
-  
+let popup;
+
+chrome.storage.sync.get({
+  message: "laa ilaaha ill-allaahu wahdahu laa shareeka lah, lah-ul-mulku wa lahul-hamdu, yuhyee wa yumeetu wa huwa hayun laa yamootu, bi yadi-hil-khayru, wa huwa 'alaa kulli shay'in qadeer"
+}, function(items) {
+  popup = createPopupElement("div", {
+    position: "fixed",
+    top: "10px",
+    right: "10px",
+    padding: "10px",
+    borderRadius: "10px",
+    backgroundColor: "rgba(0, 0, 0, 0.8)",
+    color: "#fff",
+    fontFamily: "Arial, sans-serif",
+    fontSize: "16px",
+    textAlign: "right",
+    zIndex: "9999",
+    boxShadow: "10px 5px 5px blue",
+    margin: "0em",
+    display: "flex",
+    flexDirection: "column",
+  }, items.message);
+
   const dismissButton = createPopupElement("button", {
     marginTop: "10px",
     padding: "10px",
@@ -43,13 +40,17 @@ const createPopupElement = (tag, styles, textContent) => {
     cursor: "pointer",
     width: "100px",
   }, "Dismiss");
-  
-function removePopup() {
-  popup.remove();
-}
 
-dismissButton.addEventListener("click", removePopup);
+  function removePopup() {
+    popup.remove();
+  }
 
-popup.appendChild(dismissButton);
+  dismissButton.addEventListener("click", removePopup);
 
-document.body.appendChild(popup);
+  popup.appendChild(dismissButton); // Append dismissButton to popup
+
+  document.body.appendChild(popup);
+});
+
+
+
